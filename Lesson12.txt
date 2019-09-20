@@ -1,0 +1,57 @@
+Практическое задание тема № 10
+
+1. В базе данных Redis подберите коллекцию для подсчета посещений с определенных IP-адресов.
+
+-- Добавление данных в коллекцию
+sadd 95.25.20.10 "2019-09-18 14:44"
+sadd 95.25.20.10 "2019-09-20 10:25"
+sadd 95.25.20.10 "2019-09-20 18:45"
+-- Просмотр значений в коллеции
+smembers 95.25.20.10
+-- Количество посещений с адреса (количество значений коллекции)
+scard 95.25.20.10
+
+
+2. При помощи базы данных Redis решите задачу поиска имени пользователя по электронному адресу и наоборот, 
+   поиск электронного адреса пользователя по его имени.
+   
+   HSET email Igor igor@mail.ru
+   HSET email Oleg oleg@mail.ru
+   
+   HGET email Igor
+   
+   HSET name igor@mail.ru Igor
+   HSET name oleg@mail.ru Oleg
+
+   HGET name oleg@mail.ru  
+
+3. Организуйте хранение категорий и товарных позиций учебной базы данных shop в СУБД MongoDB.
+
+use shop
+db.shop.insert(
+	{catalog: 'Процессоры',
+	products:[{id: 1, 
+			 name: 'Intel Core i3-8100',
+  	  description: 'Процессор для настольных ПК', 
+	        price: 7890}
+			]
+	})
+db.shop.insert(
+	{catalog: 'Процессоры',
+	products:[{id: 2, 
+			 name: 'Intel Core i5-7400',
+  	  description: 'Процессор для настольных ПК', 
+	        price: 12700}
+			]
+	})
+db.shop.insert(
+	{catalog: 'Материнские платы',
+	products:[{id: 3, 
+			 name: 'Intel Core i5-7400',
+  	  description: 'Gigabyte H310M S2H', 
+	        price: 4790}
+			]
+	})
+
+db.shop.find()
+db.shop.find({products.name: 'Intel Core i5-7400'})
