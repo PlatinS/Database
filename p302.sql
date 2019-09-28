@@ -1,0 +1,3 @@
+INSERT INTO products (id, catalog_id, manufacturer_id, name, status, unit, opt_price, roz_price, description, purpose_id, material_id, size_id,
+					strength, density, color_id, surface_id, voidness_id, termal, frost, min_party, quantity_on_pallet, created_at, updated_at) VALUES
+( 19611, 302, 24, 'Плита силикатная ПГП 498х80х249 Красная горка', 1, 'шт', 64.85, 0.00, '', 1, 15, 1, 150, 1750, 1, 1, 1, 0.7, NULL, 1056, 96, NOW(), NOW());
